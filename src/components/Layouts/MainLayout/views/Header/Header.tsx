@@ -16,6 +16,8 @@ import { DeveloperBoard, Menu as MenuIcon } from "@mui/icons-material";
 import { NavLinkType } from "../../../../../types.ts";
 import { useNavigate } from "react-router-dom";
 import { APP_TITLE } from "../../../../../constants.ts";
+import { useAuth } from "../../../../../providers";
+import { stringAvatar } from "../../../../../utils";
 
 const pages: NavLinkType[] = [
   { title: "Graphic Cards", to: "/cards" },
@@ -31,6 +33,7 @@ const settings: NavLinkType[] = [
 
 export const Header = () => {
   const navigation = useNavigate();
+  const { user } = useAuth();
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
@@ -139,7 +142,11 @@ export const Header = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Mamba" />
+                {user?.avatarUrl ? (
+                  <Avatar alt={user?.username} src={user?.avatarUrl} />
+                ) : (
+                  <Avatar {...stringAvatar(user?.username || "")} />
+                )}
               </IconButton>
             </Tooltip>
             <Menu

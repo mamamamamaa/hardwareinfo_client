@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { AuthLayout, MainLayout } from "./components";
-import { HomePage, SignInPage, SignUpPage } from "./pages";
+import { DevelopersPage, HomePage, SignInPage, SignUpPage } from "./pages";
 
 export const App = () => {
   return (
@@ -14,9 +14,8 @@ export const App = () => {
         <Route index element={<HomePage />} />
         <Route path="cards" element={<>Cards</>} />
         <Route path=":id/card" element={<>Card details</>} />
-        <Route path="developers" element={<>Developers</>} />
+        <Route path="developers" element={<DevelopersPage />} />
         <Route path="profile" element={<>Profile</>} />
-        <Route path="*" element={<>404</>} />
       </Route>
     </Routes>
   );
