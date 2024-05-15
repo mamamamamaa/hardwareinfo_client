@@ -4,6 +4,7 @@ import { SavedUserType, UserType } from "../types.ts";
 import { useNavigate } from "react-router-dom";
 import { useStorage } from "../hooks";
 import { STORAGE_KEY } from "../constants.ts";
+import axios from "axios";
 
 type AuthType = {
   user: SavedUserType | null;
@@ -25,6 +26,9 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     if (!user) navigate("/auth/sign-in", { replace: true });
+    else
+      axios.defaults.headers.common["Authorization"] =
+        `Bearer ${getItem(STORAGE_KEY.TOKEN, false)}`;
   }, [user]);
 
   const setUserStorage = (userData: UserType | null) => {
