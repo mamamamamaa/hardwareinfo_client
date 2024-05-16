@@ -1,5 +1,5 @@
 import { STORAGE_KEY } from "../../constants.ts";
-import axios from "axios";
+import axiosInstance from "../../utils";
 
 export const useStorage = () => ({
   getItem: (key: string, parse = true) => {
@@ -20,12 +20,12 @@ export const useStorage = () => ({
 
   removeToken: () => {
     localStorage.removeItem(STORAGE_KEY.TOKEN);
-    axios.defaults.headers.common["Authorization"] = "";
+    axiosInstance.defaults.headers.common["Authorization"] = "";
   },
 
   setUserToken: (token: string) => {
     localStorage.setItem(STORAGE_KEY.TOKEN, token);
-    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   },
 
   getUserToken: () => {

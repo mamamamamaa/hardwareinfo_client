@@ -1,9 +1,10 @@
 import { FormikHelpers, useFormik } from "formik";
 import { SignUpFormType } from "../../types.ts";
 import * as yup from "yup";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 import { useAuth } from "../../providers";
 import { useStorage } from "../common";
+import axiosInstance from "../../utils";
 
 const initialValues: SignUpFormType = {
   email: "",
@@ -38,7 +39,7 @@ export const useSignUpForm = () => {
     { resetForm, setFieldError }: FormikHelpers<SignUpFormType>
   ) => {
     try {
-      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/sign_up`, {
+      const { data } = await axiosInstance.post(`${import.meta.env.VITE_API_URL}/sign_up`, {
         username,
         email,
         password,

@@ -1,1 +1,1 @@
-export const a = 4;
+export * from "./useLogout";
