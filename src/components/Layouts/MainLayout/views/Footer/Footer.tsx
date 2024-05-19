@@ -6,11 +6,12 @@ export const Footer = () => {
     <Box
       sx={{
         width: "100%",
-        height: "auto",
+        height: "100px",
         borderTop: "1px solid #eaeaea",
         paddingTop: "1rem",
         paddingBottom: "1rem",
         position: "fixed",
+        backgroundColor: "white",
         bottom: 0,
       }}>
       <Container maxWidth="lg">

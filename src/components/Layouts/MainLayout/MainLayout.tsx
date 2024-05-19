@@ -16,7 +16,7 @@ export const MainLayout = () => {
   return (
     <>
       <Header />
-      <Container component="main">
+      <Container component="main" style={{ paddingBottom: 120 }}>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
