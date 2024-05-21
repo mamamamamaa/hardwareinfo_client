@@ -16,7 +16,7 @@ import { useState } from "react";
 import { stringAvatar } from "../../utils";
 import { useAuth } from "../../providers";
 
-const generateRandomComments = (numComments: number) => {
+const generateRandomComments = (numComments: number, id: number) => {
   const usernames = ["Test1", "Test2", "Test3", "Test4", "Test5"];
   const avatars = [
     "https://i.playground.ru/p/rv2YGvWcdjHspVJcuvV19Q.jpeg",
@@ -49,13 +49,15 @@ const generateRandomComments = (numComments: number) => {
     };
   });
 
-  return comments;
+  return id > 15 ? [] : comments;
 };
 
 export const CardDetailsPage = () => {
   const { id } = useParams();
   const { user } = useAuth();
-  const [comments, setComments] = useState(generateRandomComments(Math.floor(Math.random() * 3)));
+  const [comments, setComments] = useState(
+    generateRandomComments(Math.floor(Math.random() * 3), Number(id))
+  );
   const [newComment, setNewComment] = useState("");
 
   const card = rows.find((card) => card.id === Number(id));
@@ -95,7 +97,13 @@ export const CardDetailsPage = () => {
         <img
           src={card.imageUrl}
           alt={card.modelName}
-          style={{ width: "auto", height: 600, borderRadius: 10, objectFit: "cover" }}
+          style={{
+            width: "auto",
+            maxWidth: "50%",
+            height: 600,
+            borderRadius: 10,
+            objectFit: "cover",
+          }}
         />
 
         <Stack spacing={5} sx={{ width: "100%" }}>
@@ -132,8 +140,43 @@ export const CardDetailsPage = () => {
               <Typography variant="body1">
                 <strong>VRAM Type:</strong> {card.vramType}
               </Typography>
+              <Typography variant="body1">
+                <strong>VRAM Capacity:</strong> {card.vramCapacity}
+              </Typography>
+              <Typography variant="body1">
+                <strong>Average Benchmark Result:</strong> {card.benchmarkResult}
+              </Typography>
             </Box>
           </Paper>
+
+          {card.gpuModelDetails && (
+            <Paper elevation={3}>
+              <Box p={2}>
+                <Typography variant="h6">GPU Model Details</Typography>
+                <Typography variant="body1">
+                  <strong>Die Size:</strong> {card.gpuModelDetails.dieSize}
+                </Typography>
+                <Typography variant="body1">
+                  <strong>Architecture:</strong> {card?.gpuModelDetails.architecture}
+                </Typography>
+                <Typography variant="body1">
+                  <strong>Vendor:</strong> {card.gpuModelDetails.gpuVendor}
+                </Typography>
+                <Typography variant="body1">
+                  <strong>Name:</strong> {card.gpuModelDetails.gpuName}
+                </Typography>
+                <Typography variant="body1">
+                  <strong>Revision:</strong> {card.gpuModelDetails.gpuRev}
+                </Typography>
+                <Typography variant="body1">
+                  <strong>Shader Processors:</strong> {card.gpuModelDetails.shaderProcessors}
+                </Typography>
+                <Typography variant="body1">
+                  <strong>ROP:</strong> {card.gpuModelDetails.rop}
+                </Typography>
+              </Box>
+            </Paper>
+          )}
         </Stack>
       </Stack>
 

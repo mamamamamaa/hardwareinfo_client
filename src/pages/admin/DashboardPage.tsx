@@ -1,5 +1,5 @@
 import { ReactNode, SyntheticEvent, useState } from "react";
-import { Box, Stack, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Button, Stack, Tab, Tabs, Typography } from "@mui/material";
 import { GraphicCardsTab } from "./tabs";
 import { DataGrid } from "@mui/x-data-grid";
 import {
@@ -72,6 +72,10 @@ export const DashboardPage = () => {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <Typography variant="h4">Admin Vendors Table</Typography>
+        <Button variant="contained" color="primary" fullWidth onClick={() => {}} sx={{ my: 2 }}>
+          Add New Vendors
+        </Button>
+
         <Stack width="100%" height={712} pt={2}>
           <DataGrid
             rows={rowsOfVendors}
@@ -91,6 +95,9 @@ export const DashboardPage = () => {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         <Typography variant="h4">Admin Architectures Table</Typography>
+        <Button variant="contained" color="primary" fullWidth onClick={() => {}} sx={{ my: 2 }}>
+          Add New Architectures
+        </Button>
         <Stack width="100%" height={712} pt={2}>
           <DataGrid
             rows={rowsOfArchitectures}
@@ -110,6 +117,9 @@ export const DashboardPage = () => {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={3}>
         <Typography variant="h4">Admin GPU Models Table</Typography>
+        <Button variant="contained" color="primary" fullWidth onClick={() => {}} sx={{ my: 2 }}>
+          Add New GPU Models
+        </Button>
         <Stack width="100%" height={712} pt={2}>
           <DataGrid
             rows={rowsOfGpuModels}
@@ -117,7 +127,7 @@ export const DashboardPage = () => {
             initialState={{
               pagination: {
                 paginationModel: {
-                  pageSize: 10,
+                  pageSize: 6,
                 },
               },
             }}
@@ -129,6 +139,9 @@ export const DashboardPage = () => {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={4}>
         <Typography variant="h4">Admin TDPs Table</Typography>
+        <Button variant="contained" color="primary" fullWidth onClick={() => {}} sx={{ my: 2 }}>
+          Add New TDPs
+        </Button>
         <Stack width="100%" height={712} pt={2}>
           <DataGrid
             rows={rowsOfTDPs}
@@ -148,6 +161,9 @@ export const DashboardPage = () => {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={5}>
         <Typography variant="h4">Admin VRAM Types Table</Typography>
+        <Button variant="contained" color="primary" fullWidth onClick={() => {}} sx={{ my: 2 }}>
+          Add New VRAM Types
+        </Button>
         <Stack width="100%" height={712} pt={2}>
           <DataGrid
             rows={rowsOfVRAMTypes}

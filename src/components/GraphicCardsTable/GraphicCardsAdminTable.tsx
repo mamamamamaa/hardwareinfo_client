@@ -37,6 +37,8 @@ export const GraphicCardsAdminTable = ({ data, handleEdit, handleDelete, handleA
     gpuModel: "",
     tdp: "",
     vramType: "",
+    benchmarkResult: 0,
+    vramCapacity: "",
   });
 
   const [editCard, setEditCard] = useState<(typeof rows)[0]>();
@@ -64,6 +66,8 @@ export const GraphicCardsAdminTable = ({ data, handleEdit, handleDelete, handleA
       gpuModel: "",
       tdp: "",
       vramType: "",
+      benchmarkResult: 0,
+      vramCapacity: "",
     });
   };
 
@@ -262,6 +266,22 @@ export const GraphicCardsAdminTable = ({ data, handleEdit, handleDelete, handleA
               onChange={handleChange}
               fullWidth
             />
+            <TextField
+              name="vramCapacity"
+              label="VRAM Capacity"
+              variant="outlined"
+              value={newCard.vramCapacity}
+              onChange={handleChange}
+              fullWidth
+            />
+            <TextField
+              name="benchmarkResult"
+              label="Benchmark Result"
+              variant="outlined"
+              value={newCard.benchmarkResult}
+              onChange={handleChange}
+              fullWidth
+            />
           </Stack>
         </DialogContent>
         <DialogActions>
@@ -353,6 +373,22 @@ export const GraphicCardsAdminTable = ({ data, handleEdit, handleDelete, handleA
               label="VRAM Type"
               variant="outlined"
               value={editCard?.vramType}
+              onChange={handleEditChange}
+              fullWidth
+            />
+            <TextField
+              name="vramCapacity"
+              label="VRAM Capacity"
+              variant="outlined"
+              value={editCard?.vramCapacity}
+              onChange={handleEditChange}
+              fullWidth
+            />
+            <TextField
+              name="benchmarkResult"
+              label="Benchmark Result"
+              variant="outlined"
+              value={editCard?.benchmarkResult}
               onChange={handleEditChange}
               fullWidth
             />
