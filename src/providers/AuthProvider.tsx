@@ -2,7 +2,7 @@ import { createContext, PropsWithChildren, useContext, useEffect, useMemo, useSt
 import { SavedUserType, UserType } from "../types.ts";
 import { useNavigate } from "react-router-dom";
 import { useStorage } from "../hooks";
-import { STORAGE_KEY } from "../constants.ts";
+import { STORAGE_KEY } from "../constants.tsx";
 import axiosInstance from "../utils";
 
 type AuthType = {

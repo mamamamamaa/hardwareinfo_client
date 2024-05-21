@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { GraphicCardsAdminTable } from "../../../components";
-import { rows } from "../../../constants.ts";
+import { rows } from "../../../constants.tsx";
 
 export const GraphicCardsTab = () => {
   const { filters, updateFilter, filteredData, handleEdit, handleDelete, handleAdd } =

@@ -1,5 +1,5 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
-import { APP_TITLE } from "../../../../../constants.ts";
+import { APP_TITLE } from "../../../../../constants.tsx";
 
 export const Footer = () => {
   return (

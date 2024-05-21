@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { columns as baseColumns, rows } from "../../constants.ts";
+import { columns as baseColumns, rows } from "../../constants.tsx";
 import { ChangeEvent, useState } from "react";
 
 type Props = {
@@ -134,6 +134,7 @@ export const GraphicCardsAdminTable = ({ data, handleEdit, handleDelete, handleA
   };
 
   const columns = [
+    { field: "id", headerName: "ID", width: 70, align: "center", headerAlign: "center" },
     ...baseColumns,
     {
       field: "actions",

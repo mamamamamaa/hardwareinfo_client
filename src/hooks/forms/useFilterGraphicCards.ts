@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { rows } from "../../constants.ts";
+import { rows } from "../../constants.tsx";
 
 export const useFilterGraphicCards = (initialData = rows) => {
   const [filters, setFilters] = useState({

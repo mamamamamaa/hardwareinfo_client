@@ -1,5 +1,5 @@
 import { Card, CardContent, CardMedia, List, Stack, Typography, useTheme } from "@mui/material";
-import { DEVELOPERS } from "../../constants.ts";
+import { DEVELOPERS } from "../../constants.tsx";
 
 export const DevelopersPage = () => {
   const { palette } = useTheme();

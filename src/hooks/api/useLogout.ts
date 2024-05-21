@@ -1,6 +1,6 @@
 import { useAuth } from "../../providers";
 import { useStorage } from "../common";
-import { STORAGE_KEY } from "../../constants.ts";
+import { STORAGE_KEY } from "../../constants.tsx";
 import axiosInstance from "../../utils";
 
 export const useLogout = () => {

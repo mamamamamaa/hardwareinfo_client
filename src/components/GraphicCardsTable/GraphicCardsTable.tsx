@@ -1,6 +1,6 @@
 import { DataGrid } from "@mui/x-data-grid";
 import { Stack } from "@mui/material";
-import { columns, rows } from "../../constants.ts";
+import { columns, rows } from "../../constants.tsx";
 import { useNavigate } from "react-router-dom";
 
 type Props = {

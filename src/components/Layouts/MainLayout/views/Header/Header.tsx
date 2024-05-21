@@ -15,7 +15,7 @@ import {
 import { DeveloperBoard, Menu as MenuIcon } from "@mui/icons-material";
 import { NavLinkType } from "../../../../../types.ts";
 import { useNavigate } from "react-router-dom";
-import { APP_TITLE } from "../../../../../constants.ts";
+import { APP_TITLE } from "../../../../../constants.tsx";
 import { useAuth } from "../../../../../providers";
 import { stringAvatar } from "../../../../../utils";
 import { useLogout } from "../../../../../hooks";

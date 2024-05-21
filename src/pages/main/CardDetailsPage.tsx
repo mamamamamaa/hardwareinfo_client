@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { rows } from "../../constants.ts";
+import { rows } from "../../constants.tsx";
 import {
   Avatar,
   Box,

@@ -1,6 +1,19 @@
 import { ReactNode, SyntheticEvent, useState } from "react";
-import { Box, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Stack, Tab, Tabs, Typography } from "@mui/material";
 import { GraphicCardsTab } from "./tabs";
+import { DataGrid } from "@mui/x-data-grid";
+import {
+  columnsOfArchitectures,
+  columnsOfGpuModels,
+  columnsOfTDPs,
+  columnsOfVendors,
+  columnsOfVRAMTypes,
+  rowsOfArchitectures,
+  rowsOfGpuModels,
+  rowsOfTDPs,
+  rowsOfVendors,
+  rowsOfVRAMTypes,
+} from "../../constants.tsx";
 
 interface TabPanelProps {
   children?: ReactNode;
@@ -59,18 +72,98 @@ export const DashboardPage = () => {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <Typography variant="h4">Admin Vendors Table</Typography>
+        <Stack width="100%" height={712} pt={2}>
+          <DataGrid
+            rows={rowsOfVendors}
+            columns={columnsOfVendors}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 10,
+                },
+              },
+            }}
+            pageSizeOptions={[10, 5]}
+            checkboxSelection={false}
+            disableRowSelectionOnClick
+          />
+        </Stack>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         <Typography variant="h4">Admin Architectures Table</Typography>
+        <Stack width="100%" height={712} pt={2}>
+          <DataGrid
+            rows={rowsOfArchitectures}
+            columns={columnsOfArchitectures}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 10,
+                },
+              },
+            }}
+            pageSizeOptions={[10, 5]}
+            checkboxSelection={false}
+            disableRowSelectionOnClick
+          />
+        </Stack>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={3}>
         <Typography variant="h4">Admin GPU Models Table</Typography>
+        <Stack width="100%" height={712} pt={2}>
+          <DataGrid
+            rows={rowsOfGpuModels}
+            columns={columnsOfGpuModels}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 10,
+                },
+              },
+            }}
+            pageSizeOptions={[10, 5]}
+            checkboxSelection={false}
+            disableRowSelectionOnClick
+          />
+        </Stack>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={4}>
         <Typography variant="h4">Admin TDPs Table</Typography>
+        <Stack width="100%" height={712} pt={2}>
+          <DataGrid
+            rows={rowsOfTDPs}
+            columns={columnsOfTDPs}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 10,
+                },
+              },
+            }}
+            pageSizeOptions={[10, 5]}
+            checkboxSelection={false}
+            disableRowSelectionOnClick
+          />
+        </Stack>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={5}>
         <Typography variant="h4">Admin VRAM Types Table</Typography>
+        <Stack width="100%" height={712} pt={2}>
+          <DataGrid
+            rows={rowsOfVRAMTypes}
+            columns={columnsOfVRAMTypes}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 10,
+                },
+              },
+            }}
+            pageSizeOptions={[10, 5]}
+            checkboxSelection={false}
+            disableRowSelectionOnClick
+          />
+        </Stack>
       </CustomTabPanel>
     </Box>
   );

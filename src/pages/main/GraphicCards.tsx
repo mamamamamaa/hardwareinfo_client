@@ -74,7 +74,7 @@ import {
 } from "@mui/material";
 import { useFilterGraphicCards } from "../../hooks";
 import { GraphicCardsTable } from "../../components";
-import { rows } from "../../constants.ts";
+import { rows } from "../../constants.tsx";
 
 export const GraphicCards = () => {
   const { filters, updateFilter, filteredData } = useFilterGraphicCards();
