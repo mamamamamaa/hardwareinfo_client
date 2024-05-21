@@ -13,6 +13,7 @@ export const Footer = () => {
         position: "fixed",
         backgroundColor: "white",
         bottom: 0,
+        zIndex: 100,
       }}>
       <Container maxWidth="lg">
         <Grid container direction="column" alignItems="center">

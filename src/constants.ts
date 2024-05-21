@@ -39,6 +39,7 @@ export const DEVELOPERS = [
 export const rows = [
   {
     id: 1,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/Nvidia-GTX-1080.jpg",
     modelName: "GTX 1080",
     itemDescription: "High-end gaming",
     vendor: "Nvidia",
@@ -50,6 +51,7 @@ export const rows = [
   },
   {
     id: 2,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/Nvidia-RTX-3080.jpg",
     modelName: "RTX 3080",
     itemDescription: "Next-gen gaming",
     vendor: "Nvidia",
@@ -61,6 +63,7 @@ export const rows = [
   },
   {
     id: 3,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/AMD-RX-580.jpg",
     modelName: "RX 580",
     itemDescription: "Mid-range gaming",
     vendor: "AMD",
@@ -72,6 +75,7 @@ export const rows = [
   },
   {
     id: 4,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/AMD-RX-VEGA-64.jpg",
     modelName: "Vega 64",
     itemDescription: "High-end gaming",
     vendor: "AMD",
@@ -83,6 +87,7 @@ export const rows = [
   },
   {
     id: 5,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/Nvidia-RTX-2080-Ti.jpg",
     modelName: "RTX 2080 Ti",
     itemDescription: "Ultimate gaming",
     vendor: "Nvidia",
@@ -94,6 +99,7 @@ export const rows = [
   },
   {
     id: 6,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/Nvidia-GTX-1070-Ti.jpg",
     modelName: "GTX 1070",
     itemDescription: "High-end gaming",
     vendor: "Nvidia",
@@ -105,6 +111,7 @@ export const rows = [
   },
   {
     id: 7,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/Nvidia-RTX-3070.jpg",
     modelName: "RTX 3070",
     itemDescription: "Next-gen gaming",
     vendor: "Nvidia",
@@ -116,6 +123,7 @@ export const rows = [
   },
   {
     id: 8,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/AMD-RX-570.jpg",
     modelName: "RX 570",
     itemDescription: "Mid-range gaming",
     vendor: "AMD",
@@ -127,6 +135,7 @@ export const rows = [
   },
   {
     id: 9,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/Nvidia-GTX-1660.jpg",
     modelName: "GTX 1660",
     itemDescription: "Mid-range gaming",
     vendor: "Nvidia",
@@ -138,6 +147,7 @@ export const rows = [
   },
   {
     id: 10,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/AMD-RX-5600-XT.jpg",
     modelName: "RX 5600 XT",
     itemDescription: "Mid-range gaming",
     vendor: "AMD",
@@ -149,6 +159,7 @@ export const rows = [
   },
   {
     id: 11,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/Nvidia-RTX-3070.jpg",
     modelName: "RTX 3060",
     itemDescription: "Next-gen gaming",
     vendor: "Nvidia",
@@ -160,6 +171,7 @@ export const rows = [
   },
   {
     id: 12,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/Nvidia-GTX-1050-Ti.jpg",
     modelName: "GTX 1050 Ti",
     itemDescription: "Budget gaming",
     vendor: "Nvidia",
@@ -171,6 +183,7 @@ export const rows = [
   },
   {
     id: 13,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/AMD-RX-480.jpg",
     modelName: "RX 470",
     itemDescription: "Mid-range gaming",
     vendor: "AMD",
@@ -182,6 +195,7 @@ export const rows = [
   },
   {
     id: 14,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/Nvidia-RTX-3090.jpg",
     modelName: "RTX 3090",
     itemDescription: "Ultimate gaming",
     vendor: "Nvidia",
@@ -193,6 +207,7 @@ export const rows = [
   },
   {
     id: 15,
+    imageUrl: "https://static.userbenchmark.com/resources/static/gpu/AMD-RX-6800.jpg",
     modelName: "RX 6800 XT",
     itemDescription: "High-end gaming",
     vendor: "AMD",

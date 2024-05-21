@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import { AuthLayout, MainLayout } from "./components";
+import { AdminLayout, AuthLayout, MainLayout } from "./components";
 import {
   CardDetailsPage,
   DevelopersPage,
   GraphicCards,
   HomePage,
+  ProfilePage,
   SignInPage,
   SignUpPage,
 } from "./pages";
@@ -22,7 +23,12 @@ export const App = () => {
         <Route path="cards" element={<GraphicCards />} />
         <Route path=":id/card" element={<CardDetailsPage />} />
         <Route path="developers" element={<DevelopersPage />} />
-        <Route path="profile" element={<>Profile</>} />
+        <Route path="profile" element={<ProfilePage />} />
+
+        <Route path="admin" element={<AdminLayout />}>
+          <Route index element={<div>Dashboard</div>} />
+          <Route path="users" element={<div>Users</div>} />
+        </Route>
       </Route>
     </Routes>
   );

@@ -19,11 +19,7 @@ import { APP_TITLE } from "../../../../../constants.ts";
 import { useAuth } from "../../../../../providers";
 import { stringAvatar } from "../../../../../utils";
 import { useLogout } from "../../../../../hooks";
-
-const pages: NavLinkType[] = [
-  { title: "Graphic Cards", to: "/cards" },
-  { title: "Developers", to: "/developers" },
-];
+import { UserRoleEnum } from "../../../../../enums.ts";
 
 export const Header = () => {
   const navigation = useNavigate();
@@ -54,6 +50,15 @@ export const Header = () => {
       onClick: handleLogout,
     },
   ];
+
+  const pages: NavLinkType[] = [
+    { title: "Graphic Cards", to: "/cards" },
+    { title: "Developers", to: "/developers" },
+  ];
+
+  if (user?.role === UserRoleEnum.ADMIN) {
+    pages.push({ title: "Admin Panel", to: "/admin" });
+  }
 
   return (
     <AppBar position="static">
