@@ -39,7 +39,14 @@ export const useFilterGraphicCards = (initialData = rows) => {
     });
   }, [filters, initialData]);
 
-  const handleEdit = (id: number) => {};
+  const handleEdit = (card: (typeof rows)[0]) => {
+    rows.forEach((row, index) => {
+      if (card.id === row.id) {
+        rows[index] = card;
+      }
+    });
+    updateFilter("id", undefined);
+  };
 
   const handleDelete = (id: number) => {
     updateFilter("id", id);

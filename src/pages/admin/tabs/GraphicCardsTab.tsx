@@ -17,8 +17,7 @@ export const GraphicCardsTab = () => {
 
   return (
     <Stack sx={{ py: 5 }}>
-      <Typography variant="h4">Admin Graphic Cards Table</Typography>
-      <Stack py={3} spacing={2}>
+      <Stack pb={3} spacing={2}>
         <Typography variant="h6" gutterBottom>
           Search by:
         </Typography>

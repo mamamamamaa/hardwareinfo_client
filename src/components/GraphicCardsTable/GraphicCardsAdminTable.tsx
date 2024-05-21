@@ -17,13 +17,14 @@ import { ChangeEvent, useState } from "react";
 
 type Props = {
   data: typeof rows;
-  handleEdit: (id: number) => void;
+  handleEdit: (id: (typeof rows)[0]) => void;
   handleDelete: (id: number) => void;
   handleAdd: (newCard: any) => void;
 };
 
 export const GraphicCardsAdminTable = ({ data, handleEdit, handleDelete, handleAdd }: Props) => {
   const [open, setOpen] = useState(false);
+  const [edit, setEdit] = useState(false);
   const [image, setImage] = useState<string | ArrayBuffer | null>(null);
   const [newCard, setNewCard] = useState({
     id: (rows[rows.length - 1]?.id || 0) + 1,
@@ -38,12 +39,20 @@ export const GraphicCardsAdminTable = ({ data, handleEdit, handleDelete, handleA
     vramType: "",
   });
 
+  const [editCard, setEditCard] = useState<(typeof rows)[0]>();
+
+  const handleEditOpen = (id: number) => {
+    setEdit(true);
+    setEditCard(data.find((card) => card.id === id));
+  };
+
   const handleOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
+    setImage(null);
     setNewCard({
       id: (rows[rows.length - 1]?.id || 0) + 1,
       imageUrl: "",
@@ -58,6 +67,12 @@ export const GraphicCardsAdminTable = ({ data, handleEdit, handleDelete, handleA
     });
   };
 
+  const handleEditClose = () => {
+    setEdit(false);
+    setEditCard(undefined);
+    setImage(null);
+  };
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setNewCard((prevCard) => ({
@@ -69,6 +84,19 @@ export const GraphicCardsAdminTable = ({ data, handleEdit, handleDelete, handleA
   const handleSave = () => {
     handleAdd(newCard);
     handleClose();
+  };
+
+  const handleEditSave = () => {
+    handleEdit(editCard as (typeof rows)[0]);
+    handleEditClose();
+  };
+
+  const handleEditChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setEditCard((prevCard) => ({
+      ...prevCard,
+      [name]: value,
+    }));
   };
 
   const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
@@ -88,6 +116,23 @@ export const GraphicCardsAdminTable = ({ data, handleEdit, handleDelete, handleA
     }
   };
 
+  const handleImageEdit = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        if (event.target?.result) {
+          setImage(event.target.result);
+          setEditCard((prevCard) => ({
+            ...prevCard,
+            imageUrl: event.target?.result as string,
+          }));
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const columns = [
     ...baseColumns,
     {
@@ -97,7 +142,10 @@ export const GraphicCardsAdminTable = ({ data, handleEdit, handleDelete, handleA
       sortable: false,
       renderCell: (params: any) => (
         <Stack direction="row" spacing={1}>
-          <IconButton color="primary" aria-label="edit" onClick={() => handleEdit(params.row.id)}>
+          <IconButton
+            color="primary"
+            aria-label="edit"
+            onClick={() => handleEditOpen(params.row.id)}>
             <EditIcon />
           </IconButton>
           <IconButton
@@ -221,6 +269,100 @@ export const GraphicCardsAdminTable = ({ data, handleEdit, handleDelete, handleA
           </Button>
           <Button onClick={handleSave} color="primary">
             Save
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog open={edit} onClose={handleEditClose} maxWidth="lg" fullWidth>
+        <DialogTitle>Edit Graphic Card: {editCard?.modelName}</DialogTitle>
+        <DialogContent>
+          <Stack spacing={2} pt={2}>
+            <Box display="flex" alignItems="center" flexDirection="column">
+              {(image || editCard?.imageUrl) && (
+                <img
+                  alt="image"
+                  src={(image || editCard?.imageUrl) as string}
+                  style={{ width: "auto", height: 400, marginBottom: 10 }}
+                />
+              )}
+
+              <Button variant="contained" component="label">
+                Upload Image
+                <input type="file" hidden onChange={handleImageEdit} />
+              </Button>
+            </Box>
+            <TextField
+              name="modelName"
+              label="Model Name"
+              variant="outlined"
+              value={editCard?.modelName}
+              onChange={handleEditChange}
+              fullWidth
+            />
+            <TextField
+              name="itemDescription"
+              label="Item Description"
+              variant="outlined"
+              value={editCard?.itemDescription}
+              onChange={handleEditChange}
+              fullWidth
+            />
+            <TextField
+              name="vendor"
+              label="Vendor"
+              variant="outlined"
+              value={editCard?.vendor}
+              onChange={handleEditChange}
+              fullWidth
+            />
+            <TextField
+              name="dieSize"
+              label="Die Size"
+              variant="outlined"
+              value={editCard?.dieSize}
+              onChange={handleEditChange}
+              fullWidth
+            />
+            <TextField
+              name="architecture"
+              label="Architecture"
+              variant="outlined"
+              value={editCard?.architecture}
+              onChange={handleEditChange}
+              fullWidth
+            />
+            <TextField
+              name="gpuModel"
+              label="GPU Model"
+              variant="outlined"
+              value={editCard?.gpuModel}
+              onChange={handleEditChange}
+              fullWidth
+            />
+            <TextField
+              name="tdp"
+              label="TDP"
+              variant="outlined"
+              value={editCard?.tdp}
+              onChange={handleEditChange}
+              fullWidth
+            />
+            <TextField
+              name="vramType"
+              label="VRAM Type"
+              variant="outlined"
+              value={editCard?.vramType}
+              onChange={handleEditChange}
+              fullWidth
+            />
+          </Stack>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleEditClose} color="secondary">
+            Cancel
+          </Button>
+          <Button onClick={handleEditSave} color="primary">
+            Edit
           </Button>
         </DialogActions>
       </Dialog>

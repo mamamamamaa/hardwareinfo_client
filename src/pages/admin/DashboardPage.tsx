@@ -46,18 +46,31 @@ export const DashboardPage = () => {
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Graphic Cards" {...a11yProps(0)} />
-          <Tab label="Achitectures" {...a11yProps(1)} />
-          <Tab label="Gpu Models" {...a11yProps(2)} />
+          <Tab label="Vendors" {...a11yProps(1)} />
+          <Tab label="Architectures" {...a11yProps(2)} />
+          <Tab label="GPU Models" {...a11yProps(3)} />
+          <Tab label="TDPs" {...a11yProps(4)} />
+          <Tab label="VRAM Types" {...a11yProps(5)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
+        <Typography variant="h4">Admin Graphic Cards Table</Typography>
         <GraphicCardsTab />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        Achitectures1
+        <Typography variant="h4">Admin Vendors Table</Typography>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        Gpu Models1
+        <Typography variant="h4">Admin Architectures Table</Typography>
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={3}>
+        <Typography variant="h4">Admin GPU Models Table</Typography>
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={4}>
+        <Typography variant="h4">Admin TDPs Table</Typography>
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={5}>
+        <Typography variant="h4">Admin VRAM Types Table</Typography>
       </CustomTabPanel>
     </Box>
   );
