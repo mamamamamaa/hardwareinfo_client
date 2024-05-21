@@ -221,12 +221,12 @@ export const rows = [
 
 export const columns = [
   { field: "modelName", headerName: "Model Name", width: 130 },
-  { field: "vendor", headerName: "Vendor", width: 175, align: "center", headerAlign: "center" },
+  { field: "vendor", headerName: "Vendor", width: 100, align: "center", headerAlign: "center" },
   { field: "dieSize", headerName: "Die Size", width: 120, align: "center", headerAlign: "center" },
   {
     field: "architecture",
     headerName: "Architecture",
-    width: 175,
+    width: 150,
     align: "center",
     headerAlign: "center",
   },

@@ -11,7 +11,15 @@ export const useFilterGraphicCards = (initialData = rows) => {
     gpuModel: "",
     tdp: "",
     vramType: "",
+    id: undefined,
   });
+
+  const updateFilter = (field: string, value: string | number | undefined) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [field]: value,
+    }));
+  };
 
   const filteredData = useMemo(() => {
     return [...initialData].filter((card) => {
@@ -25,17 +33,30 @@ export const useFilterGraphicCards = (initialData = rows) => {
         (filters.architecture === "" || card.architecture === filters.architecture) &&
         (filters.gpuModel === "" || card.gpuModel === filters.gpuModel) &&
         (filters.tdp === "" || card.tdp === filters.tdp) &&
-        (filters.vramType === "" || card.vramType === filters.vramType)
+        (filters.vramType === "" || card.vramType === filters.vramType) &&
+        card.id !== filters.id
       );
     });
   }, [filters, initialData]);
 
-  const updateFilter = (field: string, value: string | number) => {
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [field]: value,
-    }));
+  const handleEdit = (id: number) => {};
+
+  const handleDelete = (id: number) => {
+    updateFilter("id", id);
+    const indexOfItemToRemove = rows.findIndex((row) => row.id === id);
+
+    if (indexOfItemToRemove !== -1) {
+      rows.splice(indexOfItemToRemove, 1);
+      console.log(rows); // This will contain the modified array without the element with id 3
+    } else {
+      console.log("Element with id", id, "not found");
+    }
   };
 
-  return { filters, updateFilter, filteredData };
+  const handleAdd = (newCard: any) => {
+    rows.push(newCard);
+    updateFilter("id", undefined);
+  };
+
+  return { filters, updateFilter, filteredData, handleEdit, handleDelete, handleAdd };
 };

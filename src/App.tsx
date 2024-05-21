@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { AdminLayout, AuthLayout, MainLayout } from "./components";
 import {
   CardDetailsPage,
+  DashboardPage,
   DevelopersPage,
   GraphicCards,
   HomePage,
@@ -26,7 +27,7 @@ export const App = () => {
         <Route path="profile" element={<ProfilePage />} />
 
         <Route path="admin" element={<AdminLayout />}>
-          <Route index element={<div>Dashboard</div>} />
+          <Route index element={<DashboardPage />} />
           <Route path="users" element={<div>Users</div>} />
         </Route>
       </Route>
