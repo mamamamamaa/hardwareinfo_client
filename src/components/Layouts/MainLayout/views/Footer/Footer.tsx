@@ -23,7 +23,7 @@ export const Footer = () => {
           </Grid>
           <Grid item xs={12}>
             <Typography color="textSecondary" variant="subtitle1">
-              {`${new Date().getFullYear()} | Dima | Yura | Sasha | Mama`}
+              {`${new Date().getFullYear()} | Dima | Yura | Sasha | Max`}
             </Typography>
           </Grid>
         </Grid>

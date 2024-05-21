@@ -1,6 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import { AuthLayout, MainLayout } from "./components";
-import { DevelopersPage, HomePage, SignInPage, SignUpPage } from "./pages";
+import {
+  CardDetailsPage,
+  DevelopersPage,
+  GraphicCards,
+  HomePage,
+  SignInPage,
+  SignUpPage,
+} from "./pages";
 
 export const App = () => {
   return (
@@ -12,8 +19,8 @@ export const App = () => {
 
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="cards" element={<>Cards</>} />
-        <Route path=":id/card" element={<>Card details</>} />
+        <Route path="cards" element={<GraphicCards />} />
+        <Route path=":id/card" element={<CardDetailsPage />} />
         <Route path="developers" element={<DevelopersPage />} />
         <Route path="profile" element={<>Profile</>} />
       </Route>
