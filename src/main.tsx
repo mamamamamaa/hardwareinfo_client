@@ -10,8 +10,6 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { AuthProvider } from "./providers";
 
-console.log("dasdasdafsdfsdfsdsddadasdasdassdas");
-
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter basename="/">
     <ThemeProvider theme={createTheme()}>
