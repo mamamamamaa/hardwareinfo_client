@@ -10,7 +10,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { AuthProvider } from "./providers";
 
-console.log("dasdasdas");
+console.log("dasdasdasddasdas");
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter basename="/">
